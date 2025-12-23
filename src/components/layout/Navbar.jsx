@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { useAuth } from "@/context/AuthContext";
+import {useState} from "react";
+import {useAuth} from "@/context/AuthContext";
 
 export default function Navbar() {
-    const { user, logout } = useAuth();
+    const {user, logout} = useAuth();
     const [open, setOpen] = useState(false);
 
     return (
@@ -51,6 +51,12 @@ export default function Navbar() {
                 <div className="md:hidden bg-white border-t px-4 py-4 flex flex-col gap-3">
                     <Link href="/campaigns">Campaigns</Link>
                     <Link href="/start-campaign">Start a Campaign</Link>
+                    {user?.role === "ADMIN" && (
+                        <Link href="/admin" className="text-red-600 font-semibold">
+                            Admin
+                        </Link>
+                    )}
+
                     {!user ? (
                         <>
                             <Link href="/auth/login">Login</Link>
