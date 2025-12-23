@@ -1,4 +1,9 @@
 export default function CampaignCard({ campaign }) {
+     const percent = Math.min(
+          Math.round((campaign.raised / campaign.goal) * 100),
+          100
+        );
+      
      return (
        <div className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
          <img
