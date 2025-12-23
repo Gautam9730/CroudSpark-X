@@ -1,13 +1,18 @@
-// src/components/home/FeaturedCampaigns.jsx
+import { campaigns } from "@/data/campaigns";
+import CampaignCard from "@/components/campaign/CampaignCard";
+
 export default function FeaturedCampaigns() {
-  return (
-    <section className="px-10 py-16">
-      <h2 className="text-3xl font-bold text-center mb-10">
-        Featured Campaigns
-      </h2>
-      <div className="text-center text-slate-500">
-        Campaign cards coming next…
-      </div>
-    </section>
-  );
+    return (
+        <section className="max-w-7xl mx-auto px-4 py-16">
+            <h2 className="text-3xl font-bold mb-8 text-center">
+                Featured Campaigns
+            </h2>
+
+            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+                {campaigns.map((campaign) => (
+                    <CampaignCard key={campaign.id} campaign={campaign} />
+                ))}
+            </div>
+        </section>
+    );
 }

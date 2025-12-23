@@ -1,13 +1,22 @@
-// src/components/home/CTA.jsx
+import Link from "next/link";
+
 export default function CTA() {
-  return (
-    <section className="py-20 text-center bg-slate-900 text-white">
-      <h2 className="text-4xl font-bold mb-6">
-        Ready to Spark Your Idea?
-      </h2>
-      <button className="bg-blue-600 px-8 py-3 rounded-md font-semibold hover:bg-blue-700 transition">
-        Start Now
-      </button>
-    </section>
-  );
+    return (
+        <section className="bg-slate-900 text-white">
+            <div className="max-w-7xl mx-auto px-4 py-16 text-center">
+                <h2 className="text-3xl font-bold mb-4">
+                    Ready to bring your idea to life?
+                </h2>
+                <p className="text-slate-300 mb-8">
+                    Launch your campaign today and get support from people worldwide.
+                </p>
+                <Link
+                    href="/start-campaign"
+                    className="bg-blue-600 px-6 py-3 rounded-md font-medium"
+                >
+                    Start a Campaign
+                </Link>
+            </div>
+        </section>
+    );
 }
