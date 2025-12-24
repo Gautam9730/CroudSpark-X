@@ -1,3 +1,6 @@
+import DonationForm from "@/components/donation/DonationForm";
+
+
 export default function CampaignDetails({ campaign }) {
     const progress = Math.min(
         Math.round((campaign.raised / campaign.goal) * 100),
@@ -34,9 +37,8 @@ export default function CampaignDetails({ campaign }) {
                 Your contribution helps bring this vision to life.
             </p>
 
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-md">
-                Donate Now
-            </button>
+            <DonationForm campaignTitle={campaign.title} />
+
         </section>
     );
 }

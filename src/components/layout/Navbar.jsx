@@ -3,10 +3,13 @@
 import Link from "next/link";
 import {useState} from "react";
 import {useAuth} from "@/context/AuthContext";
+import ProfileSidebar from "@/components/profile/ProfileSidebar";
+
 
 export default function Navbar() {
     const {user, logout} = useAuth();
     const [open, setOpen] = useState(false);
+    const [profileOpen, setProfileOpen] = useState(false);
 
     return (
         <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -32,6 +35,13 @@ export default function Navbar() {
                     ) : (
                         <>
                             <Link href="/dashboard">Dashboard</Link>
+                            <button
+                                onClick={() => setProfileOpen(true)}
+                                className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center"
+                            >
+                                U
+                            </button>
+
                             <button
                                 onClick={logout}
                                 className="text-red-600"
@@ -70,6 +80,10 @@ export default function Navbar() {
                     )}
                 </div>
             )}
+            {profileOpen && (
+                <ProfileSidebar onClose={() => setProfileOpen(false)} />
+            )}
+
         </header>
     );
 }
